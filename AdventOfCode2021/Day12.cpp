@@ -65,7 +65,14 @@ Solution::Solution()
                     continue;
                 }
 
-                // If small cave
+                if (cave[0] > 'a' && cave[0] < 'z')
+                {
+                    bool visited = std::find(previousPath.begin(), previousPath.end(), cave) != previousPath.end();
+                    if (visited)
+                    {
+                        continue;
+                    }
+                }
 
                 std::vector<std::string> currentPath = previousPath;
                 currentPath.push_back(cave);
