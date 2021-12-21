@@ -9,7 +9,7 @@ class Solution
   private:
     static std::vector<std::string> input;
     static std::unordered_map<std::string, std::unordered_set<std::string>> graph;
-    static std::vector<std::vector<std::string>> finalPaths;
+    static int countPaths(bool smallCaveOnce);
 
   public:
     Solution();
@@ -19,7 +19,6 @@ class Solution
 
 std::vector<std::string> Solution::input;
 std::unordered_map<std::string, std::unordered_set<std::string>> Solution::graph;
-std::vector<std::vector<std::string>> Solution::finalPaths;
 
 Solution::Solution()
 {
@@ -35,8 +34,12 @@ Solution::Solution()
         graph[path[0]].insert(path[1]);
         graph[path[1]].insert(path[0]);
     }
+}
 
+int Solution::countPaths(bool smallCaveOnce)
+{
     // Initialize the previous paths
+    std::vector<std::vector<std::string>> finalPaths;
     std::vector<std::vector<std::string>> previousPaths({{"start"}});
 
     bool searchComplete = false;
@@ -65,12 +68,42 @@ Solution::Solution()
                     continue;
                 }
 
-                if (cave[0] > 'a' && cave[0] < 'z')
+                if (cave[0] >= 'a' && cave[0] <= 'z')
                 {
                     bool visited = std::find(previousPath.begin(), previousPath.end(), cave) != previousPath.end();
                     if (visited)
                     {
-                        continue;
+                        if (smallCaveOnce)
+                        {
+                            continue;
+                        }
+
+                        // If it is already visited, and vising a small cave twice is allowed
+                        // Need to check first if there is already a duplicate small cave in previous path
+                        // If there is already a duplicated small cave in previous path
+                        // Then need to break out of the loop
+                        // To find if there is already a duplicate, sort the vector first
+                        // Then find the duplicate
+
+                        bool duplicatedSmallCaveExist = false;
+                        for (int i = 1; i < previousPath.size(); i++)
+                        {
+                            std::string previousCave = previousPath[i];
+
+                            if (previousCave[0] >= 'a' && previousCave[0] <= 'z')
+                            {
+                                duplicatedSmallCaveExist = std::find(previousPath.begin() + i + 1, previousPath.end(), previousCave) != previousPath.end();
+                                if (duplicatedSmallCaveExist)
+                                {
+                                    break;
+                                }
+                            }
+                        }
+
+                        if (duplicatedSmallCaveExist)
+                        {
+                            continue;
+                        }
                     }
                 }
 
@@ -83,16 +116,18 @@ Solution::Solution()
 
         previousPaths.swap(currentPaths);
     }
+
+    return static_cast<int>(finalPaths.size());
 }
 
 void Solution::SolvePartA()
 {
-    std::cout << "Part A Solution: " << finalPaths.size() << '\n';
+    std::cout << "Part A Solution: " << countPaths(true) << '\n';
 }
 
 void Solution::SolvePartB()
 {
-    std::cout << "Part B Solution: " << '\n';
+    std::cout << "Part B Solution: " << countPaths(false) << '\n';
 }
 
 int main()
