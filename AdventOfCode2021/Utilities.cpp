@@ -16,7 +16,7 @@ class Utilities
     static std::vector<int> ConvertToInt(const std::vector<std::string> &Vec);
     static void VerifyElseCrash(bool bAssert);
     static void VerifyNotReached();
-    static std::vector<int> GetBoardRow(std::string basicString);
+    static std::vector<int> GetBoardRow(const std::string& basicString);
 };
 
 std::vector<std::string> Utilities::ReadLines(const std::filesystem::path &Path)
@@ -79,7 +79,7 @@ std::vector<int> Utilities::ConvertToInt(const std::vector<std::string> &Vec)
     return ReturnVec;
 }
 
-std::vector<int> Utilities::GetBoardRow(std::string BasicString)
+std::vector<int> Utilities::GetBoardRow(const std::string& BasicString)
 {
     std::vector<int> ReturnVec;
     const int slots = 14;
