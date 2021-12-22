@@ -6,4 +6,5 @@ set(CMAKE_OSX_ARCHITECTURES "arm64")
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -O0")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O0")
 
-add_executable(Learning AdventOfCode2021/Day13.cpp)
+add_executable(Learning AdventOfCode2021/Day14.cpp)
+#add_executable(Learning /Users/ajjunaidi/Library/Application\ Support/JetBrains/CLion2021.3/scratches/scratch.cpp)

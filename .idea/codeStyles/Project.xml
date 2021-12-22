@@ -4,7 +4,8 @@
       <option name="ENABLED" value="true" />
     </clangFormatSettings>
     <codeStyleSettings language="ObjectiveC">
-      <option name="KEEP_FIRST_COLUMN_COMMENT" value="false" />
+      <option name="LINE_COMMENT_AT_FIRST_COLUMN" value="false" />
+      <option name="LINE_COMMENT_ADD_SPACE" value="true" />
     </codeStyleSettings>
   </code_scheme>
 </component>
