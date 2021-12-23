@@ -50,7 +50,7 @@ int Solution::MostLeastElementDifference()
     // Find if the combination of letters exists in the pairs
     // Insert into the current position
 
-    int steps = 10;
+    int steps = 40;
     for (int x = 0; x < steps; x++)
     {
         std::string copyPolymer(polymer);
@@ -106,7 +106,7 @@ void Solution::Solve()
 int main()
 {
     Solution solution;
-    Solution::Solve();
+    solution.Solve();
 
     return 0;
 }
