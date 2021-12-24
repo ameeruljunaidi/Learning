@@ -208,7 +208,7 @@ void Solution::SolvePartB()
 int main()
 {
     Solution solution;
-//     solution.SolvePartA();
+     // solution.SolvePartA();
      solution.SolvePartB();
 
     return 0;
