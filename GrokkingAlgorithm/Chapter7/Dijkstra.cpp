@@ -6,8 +6,8 @@
  * Dijstra is for when there is weight to the segments
  */
 
-int main()
-{
+int main() {
+    ;
 
     return 0;
 }
