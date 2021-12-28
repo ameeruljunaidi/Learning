@@ -1,0 +1,10 @@
+{
+  "configurations": [
+    {
+      "name": "Edge DevTools",
+      "request": "launch",
+      "type": "vscode-edge-devtools.debug",
+      "url": "http://localhost:5500" // Provide your project's url to finish configuring
+    }
+  ]
+}
