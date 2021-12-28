@@ -141,7 +141,7 @@ def get_match(filename: str, persons: list[dict[str, Any]], str_list: list[str])
                     if text_chunk == item and temp_count != 0:
 
                         # If current text chunk == previous chunk, it's consecutive, add
-                        # TODO: Need to fix this, something is wrong the problem is when it's a singular TPR
+                        # Need to fix this, something is wrong the problem is when it's a singular TPR
                         if (
                             text_chunk == previous_text_chunk
                             and text_chunk == next_text_chunk
