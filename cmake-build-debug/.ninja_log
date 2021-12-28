@@ -6,10 +6,14 @@
 863	1002	1640724833875247569	Learning	78d3ea09cd6a0776
 1	878	1640713464268868896	CMakeFiles/Learning.dir/CPHandbook/Bounds.cpp.o	83946496bec5ea5a
 0	594	1639954168581882902	CMakeFiles/Learning.dir/AdventOfCode2021/Source/Day12.cpp.o	c37b9e4878d382d1
-1	126	1640724935341114154	build.ninja	30a2ef31563569d1
+1	126	1640728016613152783	build.ninja	30a2ef31563569d1
 1	514	1640554477763125682	CMakeFiles/Learning.dir/CPHandbook/WorkingWithNumbers.cpp.o	fb0019a79b78e0b2
 1	370	1640116412123328375	CMakeFiles/Learning.dir/Users/ajjunaidi/Library/Application_Support/JetBrains/CLion2021.3/scratches/scratch.cpp.o	c2bc49d995fcc0f2
 1	831	1640686280002097998	CMakeFiles/Learning.dir/CPHandbook/Sorting.cpp.o	360d7a7ab694f923
 1	862	1640724833680414732	CMakeFiles/Learning.dir/CPHandbook/FindSmallest.cpp.o	65ff9a57e08a000f
 0	501	1640685288304176853	CMakeFiles/Learning.dir/CPHandbook/MergeSort.cpp.o	cb7adff96873097b
 1	776	1640724720940334218	CMakeFiles/Learning.dir/CPHandbook/BinarySearch.cpp.o	9c62c360d8c0595d
+0	849	1640728285396991648	CMakeFiles/Learning.dir/CPHandbook/ClosestElement.cpp.o	8e940d5e798ef437
+850	979	1640728285540651820	Learning	721a68d41cd270eb
+1	816	1640728309694983692	CMakeFiles/Learning.dir/CPHandbook/ClosestElement.cpp.o	8e940d5e798ef437
+816	885	1640728309774055421	Learning	721a68d41cd270eb
