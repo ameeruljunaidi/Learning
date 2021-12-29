@@ -94,7 +94,7 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "Other/EvenPermutations.cpp",
+			"path" : "Other/EvenOddPerm.cpp",
 			"sourceGroupIndex" : 0
 		}
 	],

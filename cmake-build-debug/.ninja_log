@@ -1,15 +1,8 @@
 # ninja log v5
-464	560	1640794777672997069	Learning	b70238f28f69b4c2
-1	126	1640808924410454383	build.ninja	30a2ef31563569d1
+829	921	1640810120385294674	Learning	7030b0ff3be084d1
+1	126	1640812685170375069	build.ninja	30a2ef31563569d1
+2	829	1640810120286898341	CMakeFiles/Learning.dir/Other/EvenPermutations.cpp.o	db4fa94f8e974ebd
 1	19	0	clean	3c8e6cc385ee00ba
 2	1087	1640748591554203642	CMakeFiles/Learning.dir/CPHandbook/GeneratingSubsets.cpp.o	5294d9bdb5dade55
 2	1186	1640747463651523467	CMakeFiles/Learning.dir/CPHandbook/IndexedSet.cpp.o	80cfad1b6dad63a8
 0	463	1640794777570475017	CMakeFiles/Learning.dir/CPHandbook/Subsets.cpp.o	4c169c35c44da9ba
-0	418	1640808927451499056	CMakeFiles/Learning.dir/Other/EvenPermutations.cpp.o	db4fa94f8e974ebd
-419	563	1640808927605948199	Learning	7030b0ff3be084d1
-1	547	1640809156074609113	CMakeFiles/Learning.dir/Other/EvenPermutations.cpp.o	db4fa94f8e974ebd
-548	643	1640809156177832051	Learning	7030b0ff3be084d1
-2	537	1640809521023861607	CMakeFiles/Learning.dir/Other/EvenPermutations.cpp.o	db4fa94f8e974ebd
-538	633	1640809521126337776	Learning	7030b0ff3be084d1
-1	534	1640809598415570917	CMakeFiles/Learning.dir/Other/EvenPermutations.cpp.o	db4fa94f8e974ebd
-535	629	1640809598518921260	Learning	7030b0ff3be084d1

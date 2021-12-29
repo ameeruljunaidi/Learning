@@ -74,7 +74,7 @@ void Merge(int array[], int const left, int const mid, int const right)
     }
 }
 
-void MergeSortRecursive(int array[], int const begin, int const end) // NOLINT(misc-no-recursion)
+void MergeSortRecursive(int array[], int const begin, int const end) // NOLINT(Misc-no-recursion)
 {
     // The base case is when the beginning index and the end index crosses
     if (begin >= end)
