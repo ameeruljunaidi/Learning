@@ -56,6 +56,7 @@ int main()
 }
 
 /**
+ * Read file for puzzle input
  * @param path of the file to read
  * @return a vector of all the lines in the file
  */
@@ -101,6 +102,7 @@ void getMap(const int &m)
 }
 
 /**
+ * Provides a checker to check if neighbor index is valid
  * @param direction to go: up, down, right, or left
  * @param index of the current location
  * @param rowLength of the flat map
@@ -122,8 +124,7 @@ int move(const string &direction, const int &index)
 }
 
 /**
- * No parameters, work on global variable declared at top of file
- *
+ * No parameters, work on static variables
  * @return the most efficient path to end
  */
 int dijkstraDistance()
