@@ -82,6 +82,8 @@ vt<string> readLinesInFile(const std::filesystem::path &path)
  */
 void getMap(const int &m)
 {
+    assert(("Multiplier cannot be bigger than 9, need to fix cost - 9", m < 9));
+
     rowLength = rl * m;
 
     int mci = 0; // index column multiplier
@@ -91,7 +93,7 @@ void getMap(const int &m)
         for (int j = 0; j < sz(input[i % cl]) * m; ++j)
         {
             int cost = (input[i % cl][j % rl] - '0') + mri + mci;
-            flatMap.pb((cost < 10 ? cost : cost - 9));
+            flatMap.pb((cost < 10 ? cost : cost - 9)); // This wouldn't work for m > 9
 
             mri = j % rl == rl - 1 ? ++mri : mri;
         }
