@@ -69,9 +69,7 @@ vt<string> readLinesInFile(const std::filesystem::path &path)
     string current_line;
 
     while (getline(file_stream, current_line))
-    {
         all_lines.push_back(current_line);
-    }
 
     return all_lines;
 }
@@ -172,10 +170,9 @@ int dijkstraDistance()
         auto updateNeighbor = [&](int neighborIndex) {
             // neighborIndex is a function that checks (if -1 means it is not a valid index for the map)
             // neighborIndex should also exist in the unvisitedIndices set (we are only updating unvisited neighbors)
+
             if (neighborIndex == -1 || unvisitedIndices.find(neighborIndex) == unvisitedIndices.end())
-            {
                 return;
-            }
 
             // updatedDistance is going to be the distance from start to that particular index location
             // We get this by adding its own cost (flatMap[neighbourIndex]) to the distance[nextNodeIndex]
@@ -211,9 +208,7 @@ int dijkstraDistance()
         // memory location of the location index
 
         if (distancesUpdated)
-        {
             std::sort(all(distanceLookup), [](const int *&left, const int *&right) { return *left > *right; });
-        }
     }
 
     return distance[sz(flatMap) - 1];
