@@ -20,8 +20,62 @@ using std::vector;
 #define sz(x) (int)(x).size()
 
 static vt<string> input;
-vt<int> flatMap;
-int rowLength = 0;
+static vt<int> flatMap;
+static int rowLength = 0;
+
+vt<string> readLinesInFile(const std::filesystem::path &path);
+int move(const string &direction, const int &index);
+int dijkstraDistance();
+
+int main()
+{
+    input = readLinesInFile("AdventOfCode2021/Day15.txt");
+    int rl = sz(input[0]); // row length
+    int cl = sz(input);    // column length
+
+    // Part A
+    {
+        rowLength = rl;
+
+        for (const string &line : input)
+        {
+            for (char c : line)
+                flatMap.pb(c - '0');
+        }
+
+        cout << "Part A Solution: " << dijkstraDistance() << '\n';
+
+        flatMap.clear();
+        rowLength = 0;
+    }
+
+    // Part B
+    {
+        const int m = 5;       // multiplier
+        rowLength = rl * m;
+
+        int mci = 0; // index column multiplier
+        for (int i = 0; i < sz(input) * m; ++i)
+        {
+            int mri = 0; // index row multiplier
+            for (int j = 0; j < sz(input[i % cl]) * m; ++j)
+            {
+                int cost = (input[i % cl][j % rl] - '0') + mri + mci;
+                flatMap.pb((cost < 10 ? cost : cost - 9));
+
+                mri = j % rl == rl - 1 ? ++mri : mri;
+            }
+            mci = i % cl == cl - 1 ? ++mci : mci;
+        }
+
+        cout << "Part B Solution: " << dijkstraDistance() << '\n';
+
+        flatMap.clear();
+        rowLength = 0;
+    }
+
+    return 0;
+}
 
 /**
  * @param path of the file to read
@@ -50,7 +104,7 @@ vt<string> readLinesInFile(const std::filesystem::path &path)
  * @param mapSize is the total size of the flatMap vector
  * @return -1 if not a valid move, returns an index to go to if valid
  */
-int move(const string &direction, const int index)
+int move(const string &direction, const int &index)
 {
     if (direction == "up")
         return index != -1 && index - rowLength >= 0 ? index - rowLength : -1;
@@ -159,56 +213,4 @@ int dijkstraDistance()
     }
 
     return distance[sz(flatMap) - 1];
-}
-
-int main()
-{
-    input = readLinesInFile("AdventOfCode2021/Day15.txt");
-
-    // Part A
-    {
-        for (const string &line : input)
-        {
-            for (char c : line)
-                flatMap.pb(c - '0');
-
-            if (rowLength == 0)
-                rowLength = static_cast<int>(sz(line));
-        }
-
-        cout << "Part A Solution: " << dijkstraDistance() << '\n';
-
-        flatMap.clear();
-        rowLength = 0;
-    }
-
-    // Part B
-    {
-        const int m = 5;       // multiplier
-        int rl = sz(input[0]); // temporary row length
-        int cl = sz(input);    // temporary column length
-
-        int mci = 0; // index column multiplier
-        for (int i = 0; i < sz(input) * m; ++i)
-        {
-            int mri = 0; // index row multiplier
-            for (int j = 0; j < sz(input[i % cl]) * m; ++j)
-            {
-                int cost = (input[i % cl][j % rl] - '0') + mri + mci;
-                flatMap.pb((cost < 10 ? cost : cost - 9));
-
-                mri = j % rl == rl - 1 ? ++mri : mri;
-            }
-            mci = i % cl == cl - 1 ? ++mci : mci;
-        }
-
-        rowLength = rl * m;
-
-        cout << "Part B Solution: " << dijkstraDistance() << '\n';
-
-        flatMap.clear();
-        rowLength = 0;
-    }
-
-    return 0;
 }
