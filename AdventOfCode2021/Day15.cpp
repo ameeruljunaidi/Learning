@@ -147,7 +147,7 @@ int dijkstraDistance()
         const int *nextEntry = distanceLookup.back(); // Get pointer to int of the latest elements pushed
         int nextNodeIndex = static_cast<int>(nextEntry - &distance[0]);
 
-        // * This is some pointer arithmetic bullshit, need to really understand this
+        // * This is some pointer arithmetic bullshit, need to really get this right
         // The nextEntry pointer looks to the last location pushed back to the distanceLookup
         // &distance[0] is the first location (the start location)
         // The distance between them would give the index of that location (the latest one pushed back on to
