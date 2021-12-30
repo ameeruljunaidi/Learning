@@ -20,58 +20,36 @@ using std::vector;
 #define sz(x) (int)(x).size()
 
 static vt<string> input;
-static vt<int> flatMap;
-static int rowLength = 0;
+static int rl;          // row length input
+static int cl;          // column length input
+static vt<int> flatMap; // full map but flat
+static int rowLength;   // row length Dijkstra
 
-vt<string> readLinesInFile(const std::filesystem::path &path);
-int move(const string &direction, const int &index);
-int dijkstraDistance();
+static vt<string> readLinesInFile(const std::filesystem::path &path);
+static void getMap(const int &m);
+static int move(const string &direction, const int &index);
+static int dijkstraDistance();
 
 int main()
 {
     input = readLinesInFile("AdventOfCode2021/Day15.txt");
-    int rl = sz(input[0]); // row length
-    int cl = sz(input);    // column length
+    rl = sz(input[0]); // row length
+    cl = sz(input);    // column length
 
-    // Part A
     {
-        rowLength = rl;
-
-        for (const string &line : input)
-        {
-            for (char c : line)
-                flatMap.pb(c - '0');
-        }
+        const int m = 1; // multiplier
+        getMap(m);
 
         cout << "Part A Solution: " << dijkstraDistance() << '\n';
-
         flatMap.clear();
-        rowLength = 0;
     }
 
-    // Part B
     {
-        const int m = 5;       // multiplier
-        rowLength = rl * m;
-
-        int mci = 0; // index column multiplier
-        for (int i = 0; i < sz(input) * m; ++i)
-        {
-            int mri = 0; // index row multiplier
-            for (int j = 0; j < sz(input[i % cl]) * m; ++j)
-            {
-                int cost = (input[i % cl][j % rl] - '0') + mri + mci;
-                flatMap.pb((cost < 10 ? cost : cost - 9));
-
-                mri = j % rl == rl - 1 ? ++mri : mri;
-            }
-            mci = i % cl == cl - 1 ? ++mci : mci;
-        }
+        const int m = 5; // multiplier
+        getMap(m);
 
         cout << "Part B Solution: " << dijkstraDistance() << '\n';
-
         flatMap.clear();
-        rowLength = 0;
     }
 
     return 0;
@@ -95,6 +73,31 @@ vt<string> readLinesInFile(const std::filesystem::path &path)
     }
 
     return all_lines;
+}
+
+/**
+ * Initialize the map depending on part a or part b
+ * @param rl row length of the map
+ * @param cl column length of the map
+ * @param m multiplier for the map (1 means original map, >1 means map grows by that amount)
+ */
+void getMap(const int &m)
+{
+    rowLength = rl * m;
+
+    int mci = 0; // index column multiplier
+    for (int i = 0; i < sz(input) * m; ++i)
+    {
+        int mri = 0; // index row multiplier
+        for (int j = 0; j < sz(input[i % cl]) * m; ++j)
+        {
+            int cost = (input[i % cl][j % rl] - '0') + mri + mci;
+            flatMap.pb((cost < 10 ? cost : cost - 9));
+
+            mri = j % rl == rl - 1 ? ++mri : mri;
+        }
+        mci = i % cl == cl - 1 ? ++mci : mci;
+    }
 }
 
 /**
