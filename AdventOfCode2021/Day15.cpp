@@ -37,19 +37,17 @@ int main()
     cl = sz(input);    // column length
 
     {
-        const int m = 1; // multiplier
+        const int m = 1;
         getMap(m);
 
         cout << "Part A Solution: " << dijkstraDistance() << '\n';
-        flatMap.clear();
     }
 
     {
-        const int m = 5; // multiplier
+        const int m = 5;
         getMap(m);
 
         cout << "Part B Solution: " << dijkstraDistance() << '\n';
-        flatMap.clear();
     }
 
     return 0;
@@ -82,8 +80,10 @@ vt<string> readLinesInFile(const std::filesystem::path &path)
  */
 void getMap(const int &m)
 {
-    assert(("Multiplier cannot be bigger than 9, need to fix cost - 9", m < 9));
+    assert(m < 9);
 
+    if (!flatMap.empty())
+        flatMap.clear();
     rowLength = rl * m;
 
     int mci = 0; // index column multiplier
