@@ -42,7 +42,7 @@ rule CXX_EXECUTABLE_LINKER__Learning_Debug
 # Rule for re-running cmake.
 
 rule RERUN_CMAKE
-  command = /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake --regenerate-during-build -S/Users/ajjunaidi/CLionProjects/Learning -B/Users/ajjunaidi/CLionProjects/Learning/cmake-build-debug
+  command = "/Users/ajjunaidi/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/213.6461.75/CLion.app/Contents/bin/cmake/mac/bin/cmake" --regenerate-during-build -S/Users/ajjunaidi/CLionProjects/Learning -B/Users/ajjunaidi/CLionProjects/Learning/cmake-build-debug
   description = Re-running CMake...
   generator = 1
 
@@ -51,7 +51,7 @@ rule RERUN_CMAKE
 # Rule for cleaning all built files.
 
 rule CLEAN
-  command = /Applications/CLion.app/Contents/bin/ninja/mac/ninja $FILE_ARG -t clean $TARGETS
+  command = "/Users/ajjunaidi/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/213.6461.75/CLion.app/Contents/bin/ninja/mac/ninja" $FILE_ARG -t clean $TARGETS
   description = Cleaning all built files...
 
 
@@ -59,6 +59,6 @@ rule CLEAN
 # Rule for printing all primary targets available.
 
 rule HELP
-  command = /Applications/CLion.app/Contents/bin/ninja/mac/ninja -t targets
+  command = "/Users/ajjunaidi/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/213.6461.75/CLion.app/Contents/bin/ninja/mac/ninja" -t targets
   description = All primary targets available:
 
