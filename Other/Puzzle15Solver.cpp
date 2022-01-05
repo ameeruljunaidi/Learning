@@ -9,16 +9,16 @@ using std::cout;
 using std::string;
 using std::vector;
 
-#define rowLength 4
-#define gridSize 16
+#define rowLength 3
+#define gridSize 9
 
 #define vt vector
 #define pb push_back
 #define all(c) (c).begin(), (c).end()
 #define sz(x) (int)(x).size()
 
-array<int, gridSize> startGrid = {1, 2, 3, 4, 5, 6, 7, 8, 13, 9, 11, 12, 10, 14, 15, 0};
-array<int, gridSize> endGrid = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 0};
+array<int, gridSize> startGrid = {0, 1, 2, 3, 4, 5, 6, 7, 8};
+array<int, gridSize> endGrid = {1, 2, 3, 4, 5, 6, 7, 8, 0};
 vt<array<int, gridSize>> visitedStates{};
 
 int move(const string &direction, const int &index);
